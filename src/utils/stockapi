@@ -1,0 +1,58 @@
+import Fly from 'flyio/dist/npm/wx'
+import { http } from './httpconfig'
+
+const fly = new Fly()
+
+export function searchStock (key) {
+  const url = `${http}/search?key=${key}`
+  return fly.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+export function stockTime (code = 600004) {
+  const url = `${http}/time?code=${code}`
+  return fly.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+export function stockIndex () {
+  const url = `${http}/index`
+  return fly.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+export function stockKData (code = 600004) {
+  const url = `${http}/kdata?code=${code}`
+  return fly.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+export function quoteChange (num = 5) {
+  const url = `${http}/quotechange?num=${num}`
+  return fly.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+export function stockQuote (code) {
+  const url = `${http}/quotes?code=${code}`
+  return fly.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
